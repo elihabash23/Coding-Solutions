@@ -1,2 +1,2 @@
 # Coding-Solutions
-Solutions to coding problems
+Solutions to coding problems.
