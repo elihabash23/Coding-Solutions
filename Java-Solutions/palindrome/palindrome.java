@@ -7,8 +7,24 @@
 
  public class palindrome {
 
-    public static void checkIfPalindrome(String str) {
+    public static boolean checkIfPalindrome(String str) {
 
+        if (!str.equals(null) && str.length() > 0) {
+        
+            for (int i = 0; i < str.length() / 2; i++) {
+                if(Character.toLowerCase(str.charAt(i)) != Character.toLowerCase(str.charAt(str.length() - 1 - i))) 
+                    return false;
+            }
+            return true;
+        }
+        return false;
     }
 
+
+    public static void main(String[] args) {
+        String [] tests = {"Elias", "Ball", "Radar", "radar", "baloon", "Rats live on no evil star", "hhhhh", "h", "hi", "hhhh", ""};
+        for (String test: tests) {
+            System.out.println( test + " is " + checkIfPalindrome(test));
+        }
+    }
  }
