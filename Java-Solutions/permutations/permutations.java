@@ -1,32 +1,32 @@
 // Implement an algorithm to check if two strings are permutations of each other
 
 public class permutations {
-  public static boolean checkIfPermutation(String s1, String s2) {
+  public static boolean permutation(String s1, String s2) {
     if (s1.length() != s2.length())
       return false;
 
-    for (int i=0; i < s1.length(); i++) {
-      if (s1.charAt(i) != s2.charAt(s2.length() - i - 1)) {
-        return false;
-      }
+    int[] letters = new int[128]; // ASCII key
+    for (int i = 0; i < s1.length(); i++) {
+      letters[s1.charAt(i)]++;
     }
 
+    for (int i = 0; i < s2.length(); i++) {
+      letters[s2.charAt(i)]--;
+
+      if (letters[s2.charAt(i)] < 0)
+        return false;
+    }
     return true;
   }
 
-  public static void main (String[] args) {
-    String[] pairs = {"football", "basketball"};
-    if (checkIfPermutation(pairs[0], pairs[1])) {
-      System.out.println(pairs[0] + " and " + pairs[1] + " are permutations of each other");
-    } else {
-      System.out.println(pairs[0] + " and " + pairs[1] + " are not permutations of each other");
-    }
+  public static void main(String[] args) {
+    String[] pairs = { "smith", "htims" };
+    System.out.println(pairs[0] + " and " + pairs[1] + " are " + permutation(pairs[0], pairs[1]));
 
-    String[] pairs2 = {"smith", "htims"};
-    if (checkIfPermutation(pairs2[0], pairs2[1])) {
-      System.out.println(pairs2[0] + " and " + pairs2[1] + " are permutations of each other");
-    } else {
-      System.out.println(pairs2[0] + " and " + pairs2[1] + " are not permutations of each other");
-    }
+    String[] pairs2 = { "football", "basketball" };
+    System.out.println(pairs2[0] + " and " + pairs2[1] + " are " + permutation(pairs2[0], pairs2[1]));
+
+    String[] pairs3 = { "elias", "chris" };
+    System.out.println(pairs3[0] + " and " + pairs3[1] + " are " + permutation(pairs3[0], pairs3[1]));
   }
 }
