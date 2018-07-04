@@ -1,1 +1,1 @@
-// Return the three most frequent numbers in an array
+// Return the three most frequent numbers in an unsorted array
