@@ -1,4 +1,4 @@
-// Implement an algorithm to check if two strings are permutations of each other
+// Implement an algorithm to check if two strings are permutations of each other.
 
 public class permutations {
   public static boolean permutation(String s1, String s2) {
